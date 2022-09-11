@@ -90,7 +90,7 @@ async def start(bot: Client, cmd: Message):
             if GetMessage.text:
                 message_ids = GetMessage.text.split(" ")
                 _response_msg = await cmd.reply_text(
-                    text=f"**Total Files:** `{len(message_ids)}`",
+                    text=f"**📂 تعداد فایل :** `{len(message_ids)}`",
                     quote=True,
                     disable_web_page_preview=True
                 )
@@ -115,7 +115,7 @@ async def main(bot: Client, message: Message):
                 return
 
         if message.from_user.id in Config.BANNED_USERS:
-            await message.reply_text("Sorry, You are banned!\n\nContact [Support Group](https://t.me/TeleRoid14)",
+            await message.reply_text("Sorry, You are banned!\n\nContact [Support-Admin](https://t.me/farshidband)",
                                      disable_web_page_preview=True)
             return
 
@@ -123,9 +123,9 @@ async def main(bot: Client, message: Message):
             return
 
         await message.reply_text(
-            text="**Choose an option from below:**",
+            text="**⁦✴️⁩ یکی از گزینه های زیر را انتخاب کنید 👇**",
             reply_markup=InlineKeyboardMarkup([               
-                [InlineKeyboardButton("دریافت لینک اشتراک گذاری", callback_data="addToBatchFalse")]
+                [InlineKeyboardButton("• دریافت لینک اشتراک گذاری •", callback_data="addToBatchFalse")]
             ]),
             quote=True,
             disable_web_page_preview=True
@@ -381,14 +381,9 @@ async def button(bot: Client, cmd: CallbackQuery):
             text=Config.HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton("Support Group", url="https://t.me/TeleRoid14"),
-                        InlineKeyboardButton("Bots Channel", url="https://t.me/TeleRoidGroup")
-                    ],
-                    [
-                        InlineKeyboardButton("About Bot", callback_data="aboutbot"),
-                        InlineKeyboardButton("About Dev", callback_data="aboutdevs")
+                [                  
+                    [                       
+                        InlineKeyboardButton("📚 راهنمای دریافت فایل", callback_data="aboutdevs")
                     ]
                 ]
             )
