@@ -72,19 +72,10 @@ async def start(bot: Client, cmd: Message):
             Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton("BotsList Channel", url="https://t.me/PayForBotz")
-                    ],
-                    [
-                        InlineKeyboardButton("About Bot", callback_data="aboutbot"),
-                        InlineKeyboardButton("About Dev", callback_data="aboutdevs"),
-                        InlineKeyboardButton("Close 🚪", callback_data="closeMessage")
-                    ],
-                    [
-                        InlineKeyboardButton("Support Group", url="https://t.me/TeleRoid14"),
-                        InlineKeyboardButton("Bots Channel", url="https://t.me/TeleRoidGroup")
-                    ]
+                [                   
+                    [               
+                        InlineKeyboardButton("📚 راهنمای دریافت فایل", callback_data="aboutdevs")
+                    ]                   
                 ]
             )
         )
@@ -134,8 +125,8 @@ async def main(bot: Client, message: Message):
         await message.reply_text(
             text="**Choose an option from below:**",
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("Save in Batch", callback_data="addToBatchTrue")],
-                [InlineKeyboardButton("Get Sharable Link", callback_data="addToBatchFalse")]
+                [InlineKeyboardButton("ذخیره بصورت دسته", callback_data="addToBatchTrue")],
+                [InlineKeyboardButton("دریافت لینک اشتراک گذاری", callback_data="addToBatchFalse")]
             ]),
             quote=True,
             disable_web_page_preview=True
@@ -152,7 +143,7 @@ async def main(bot: Client, message: Message):
         try:
             forwarded_msg = await message.forward(Config.DB_CHANNEL)
             file_er_id = str(forwarded_msg.id)
-            share_link = f"https://t.me/{Config.BOT_USERNAME}?start=PredatorHackerzZ_{str_to_b64(file_er_id)}"
+            share_link = f"https://t.me/{Config.BOT_USERNAME}?start=SeriesPlus1_{str_to_b64(file_er_id)}"
             CH_edit = await bot.edit_message_reply_markup(message.chat.id, message.id,
                                                           reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
                                                               "Get Sharable Link", url=share_link)]]))
@@ -188,7 +179,7 @@ async def broadcast_handler_open(_, m: Message):
 async def sts(_, m: Message):
     total_users = await db.total_users_count()
     await m.reply_text(
-        text=f"**Total Users in DB:** `{total_users}`",
+        text=f"**👤 تعداد کاربرای ربات :** `{total_users}` نفر",
         quote=True
     )
 
@@ -316,14 +307,10 @@ async def button(bot: Client, cmd: CallbackQuery):
             Config.ABOUT_BOT_TEXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
+                [                   
                     [
-                        InlineKeyboardButton("Source Codes of Bot",
-                                             url="https://github.com/PredatorHackerzZ/TG-FileStore")
-                    ],
-                    [
-                        InlineKeyboardButton("Go Home", callback_data="gotohome"),
-                        InlineKeyboardButton("About Dev", callback_data="aboutdevs")
+                        InlineKeyboardButton("⁦↪️⁩ بازگشت", callback_data="gotohome"),
+                        InlineKeyboardButton("📚 راهنمای دریافت فایل", callback_data="aboutdevs")
                     ]
                 ]
             )
@@ -334,14 +321,10 @@ async def button(bot: Client, cmd: CallbackQuery):
             Config.ABOUT_DEV_TEXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
+                [                   
                     [
-                        InlineKeyboardButton("Source Codes of Bot",
-                                             url="https://github.com/PredatorHackerzZ/TG-FileStore")
-                    ],
-                    [
-                        InlineKeyboardButton("About Bot", callback_data="aboutbot"),
-                        InlineKeyboardButton("Go Home", callback_data="gotohome")
+                        InlineKeyboardButton("🤖 درباره ربات", callback_data="aboutbot"),
+                        InlineKeyboardButton("↪️ بازگشت", callback_data="gotohome")
                     ]
                 ]
             )
@@ -352,19 +335,10 @@ async def button(bot: Client, cmd: CallbackQuery):
             Config.HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton("BotsList Channel", url="https://t.me/PayForBotz")
-                    ],
-                    [
-                        InlineKeyboardButton("About Bot", callback_data="aboutbot"),
-                        InlineKeyboardButton("About Dev", callback_data="aboutdevs"),
-                        InlineKeyboardButton("Close 🚪", callback_data="closeMessage")
-                    ],
-                    [
-                        InlineKeyboardButton("Support Group", url="https://t.me/TeleRoid14"),
-                        InlineKeyboardButton("Bots Channel", url="https://t.me/TeleRoidGroup")
-                    ]
+                [                   
+                    [                       
+                        InlineKeyboardButton("📚 راهنمای دریافت فایل", callback_data="aboutdevs"),                     
+                    ]                  
                 ]
             )
         )
@@ -390,10 +364,10 @@ async def button(bot: Client, cmd: CallbackQuery):
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+                                InlineKeyboardButton("📢 عضویت در کانال", url=invite_link.invite_link)
                             ],
                             [
-                                InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshmeh")
+                                InlineKeyboardButton("عضو شدم 👍😊", callback_data="refreshmeh")
                             ]
                         ]
                     )
@@ -401,7 +375,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 return
             except Exception:
                 await cmd.message.edit(
-                    text="Something went Wrong. Contact my [Support Group](https://t.me/TeleRoid14).",
+                    text="Something went Wrong. Contact my [Support-Admin](https://t.me/farshidband).",
                     disable_web_page_preview=True
                 )
                 return
