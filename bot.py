@@ -1,4 +1,4 @@
-# (c) @TeleRoidGroup || @PredatorHackerzZ
+# (c) @FarshidBand
 
 import os
 import asyncio
@@ -124,8 +124,7 @@ async def main(bot: Client, message: Message):
 
         await message.reply_text(
             text="**Choose an option from below:**",
-            reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("ذخیره بصورت دسته", callback_data="addToBatchTrue")],
+            reply_markup=InlineKeyboardMarkup([               
                 [InlineKeyboardButton("دریافت لینک اشتراک گذاری", callback_data="addToBatchFalse")]
             ]),
             quote=True,
@@ -322,8 +321,7 @@ async def button(bot: Client, cmd: CallbackQuery):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [                   
-                    [
-                        InlineKeyboardButton("🤖 درباره ربات", callback_data="aboutbot"),
+                    [                   
                         InlineKeyboardButton("↪️ بازگشت", callback_data="gotohome")
                     ]
                 ]
@@ -418,8 +416,8 @@ async def button(bot: Client, cmd: CallbackQuery):
         await cmd.message.edit("File Saved in Batch!\n\n"
                                "Press below button to get batch link.",
                                reply_markup=InlineKeyboardMarkup([
-                                   [InlineKeyboardButton("Get Batch Link", callback_data="getBatchLink")],
-                                   [InlineKeyboardButton("Close Message", callback_data="closeMessage")]
+                                   [InlineKeyboardButton("🔗 گرفتن لینک بصورت دسته", callback_data="getBatchLink")],
+                                   [InlineKeyboardButton("× بستن ×", callback_data="closeMessage")]
                                ]))
 
     elif "addToBatchFalse" in cb_data:
@@ -430,7 +428,7 @@ async def button(bot: Client, cmd: CallbackQuery):
         if message_ids is None:
             await cmd.answer("Batch List Empty!", show_alert=True)
             return
-        await cmd.message.edit("Please wait, generating batch link ...")
+        await cmd.message.edit("**🤏 کمی صبر کنید...\n\n📌 در حال تولید لینک دسته ...**")
         await save_batch_media_in_channel(bot=bot, editable=cmd.message, message_ids=message_ids)
         MediaList[f"{str(cmd.from_user.id)}"] = []
 
