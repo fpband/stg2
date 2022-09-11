@@ -341,35 +341,43 @@ async def button(bot: Client, cmd: CallbackQuery):
             )
         )
 
-    elif "refreshForceSub" in cb_data:
-        if Config.UPDATES_CHANNEL:
-            if Config.UPDATES_CHANNEL.startswith("-100"):
-                channel_chat_id = int(Config.UPDATES_CHANNEL)
-            else:
-                channel_chat_id = Config.UPDATES_CHANNEL
-            try:
-                user = await bot.get_chat_member(channel_chat_id, cmd.message.chat.id)
-                if user.status == "kicked":
-                    await cmd.message.edit(
-                        text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/TeleRoid14).",
-                        disable_web_page_preview=True
-                    )
-                    return
-            except UserNotParticipant:
-                invite_link = await get_invite_link(channel_chat_id)
-                await cmd.message.edit(
-                    text="**⁦⚠️⁩ شما در کانال عضو نشدید !!!**\n\n**• کاربر گرامی برای استفاده از ربات باید در کانال**\n\n**زیر عضو شوید سپس /start را کلیک کنید.👇**\n",
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton("📢 عضویت در کانال", url=invite_link.invite_link)
-                            ],
-                            [
-                                InlineKeyboardButton("✅ عضو شدم 👍😊", callback_data="refreshmeh")
-                            ]
-                        ]
-                    )
-                )
+    @AHBot.on_callback_query()
+async def button(bot, cmd: CallbackQuery):
+	cb_data = cmd.data
+	if "refreshmeh" in cb_data:
+		if Config.UPDATES_CHANNEL:
+			invite_link = await bot.create_chat_invite_link(int(Config.UPDATES_CHANNEL))
+			try:
+				user = await bot.get_chat_member(int(Config.UPDATES_CHANNEL), cmd.message.chat.id)
+				if user.status == "kicked":
+					await cmd.message.edit(
+						text="Sorry Sir, You are Banned to use me. Contact my [Support Admin](https://t.me/FarshidBand).",
+						parse_mode="markdown",
+						disable_web_page_preview=True
+					)
+					return
+			except UserNotParticipant:
+				await cmd.message.edit(
+					text="**❌ شما در کانال عضو نشدید !!**\n\n**• برای کارکردن ربات در کانال زیر عضو شوید.**\n\n**🔚 سپس /start را کلیک کنید.😊👇👇**",
+					reply_markup=InlineKeyboardMarkup(
+						[
+							[
+								InlineKeyboardButton("📢 عضویت ", url=invite_link.invite_link)
+							],
+							[
+								InlineKeyboardButton("✅ عضو شدم", callback_data="refreshmeh")
+							]
+						]
+					),
+					parse_mode="markdown"
+				)
+				return
+			except Exception:
+				await cmd.message.edit(
+					text="😞 مشکلی به وجود آمد ← [گزارش مشکل](https://t.me/FarshidBand).",
+					parse_mode="markdown",
+					disable_web_page_preview=True
+				)
                 return
             except Exception:
                 await cmd.message.edit(
