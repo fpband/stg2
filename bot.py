@@ -178,7 +178,7 @@ async def broadcast_handler_open(_, m: Message):
 async def sts(_, m: Message):
     total_users = await db.total_users_count()
     await m.reply_text(
-        text=f"**👤 تعداد کاربرای ربات :** `{total_users}` نفر",
+        text=f"**👤 تعداد کاربرای ربات :** `{total_users}`** نفر**",
         quote=True
     )
 
@@ -351,7 +351,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 user = await bot.get_chat_member(channel_chat_id, cmd.message.chat.id)
                 if user.status == "kicked":
                     await cmd.message.edit(
-                        text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/TeleRoid14).",
+                        text="**❌ شما بن شده اید [گزارش-مشکل](https://t.me/farshidband)**.",
                         disable_web_page_preview=True
                     )
                     return
@@ -373,7 +373,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 return
             except Exception:
                 await cmd.message.edit(
-                    text="Something went Wrong. Contact my [Support-Admin](https://t.me/farshidband).",
+                    text="× مشکلی به وجود آمد. [گزارش-مشکل](https://t.me/farshidband).",
                     disable_web_page_preview=True
                 )
                 return
