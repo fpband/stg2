@@ -12,7 +12,7 @@
     "success_url": "https://t.me/TeleRoidGroup",
     "logo": "https://telegra.ph/file/b39906f572822b3ab82c8.jpg",
     "env": {
-         "API_id": {
+         "API_ID": {
             "description": "Api id telegram",
             "required": false,
             "value": "3335796"
