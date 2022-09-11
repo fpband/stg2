@@ -358,14 +358,14 @@ async def button(bot: Client, cmd: CallbackQuery):
             except UserNotParticipant:
                 invite_link = await get_invite_link(channel_chat_id)
                 await cmd.message.edit(
-                    text="**I like Your Smartness But Don't Be Oversmart! 😑**\n\n",
+                    text="**⁦⚠️⁩ شما در کانال عضو نشدید !!!**\n\n**• کاربر گرامی برای استفاده از ربات باید در کانال**\n\n**زیر عضو شوید سپس /start را کلیک کنید.👇**\n",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
                                 InlineKeyboardButton("📢 عضویت در کانال", url=invite_link.invite_link)
                             ],
                             [
-                                InlineKeyboardButton("عضو شدم 👍😊", callback_data="refreshmeh")
+                                InlineKeyboardButton("✅ عضو شدم 👍😊", callback_data="refreshmeh")
                             ]
                         ]
                     )
