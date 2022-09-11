@@ -30,7 +30,7 @@
          "BOT_USERNAME": {
             "description": "username bot",
             "required": false,
-            "value": ""
+            "value": "ir_StorageFileBot"
         },
          "DB_CHANNEL": {
             "description": "log channel id",
