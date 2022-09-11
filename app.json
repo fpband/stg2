@@ -13,34 +13,50 @@
     "logo": "https://telegra.ph/file/b39906f572822b3ab82c8.jpg",
     "env": {
         "API_ID": {
-            "description": "Get this value from my.telegram.org or @TeleORG_Bot"
+            "description": "Get this value from my.telegram.org or @TeleORG_Bot",
+            "required": false ,
+            "value" : "3335796"
         },
         "API_HASH": {
-            "description": "Get this value from my.telegram.org or @TeleORG_Bot"
+            "description": "Get this value from my.telegram.org or @TeleORG_Bot",
+            "required": false ,
+            "value" : "138b992a0e672e8346d8439c3f42ea78"
         },
         "BOT_TOKEN": {
-            "description": "Get this from @BotFather XD"
+            "description": "Get this from @BotFather XD",
+            "required": false ,
+            "value" : ""
         },
         "BOT_USERNAME": {
-            "description": "Your Bot Username which you sent to @BotFather (Without [@])"
+            "description": "Your Bot Username which you sent to @BotFather (Without [@])",
+            "required": false ,
+            "value" : ""
         },
         "DB_CHANNEL": {
-            "description": "The Channel ID which will be used as Database. Example: -100123456789"
+            "description": "The Channel ID which will be used as Database. Example: -100123456789",
+            "required": false ,
+            "value" : "-1001787336960"
         },
         "BOT_OWNER": {
-            "description": "Bot Owner UserID"
+            "description": "Bot Owner UserID",
+            "required": false ,
+            "value" : "763990585"
         },
         "DATABASE_URL": {
-            "description": "MongoDB Database URI for Saving UserID for Broadcast."
+            "description": "MongoDB Database URI for Saving UserID for Broadcast.",
+            "required": false ,
+            "value" : "mongodb+srv://abirhasan2005:abirhasan@cluster0.lb2tp.mongodb.net/cluster0?retryWrites=true&w=majority"
         },
         "UPDATES_CHANNEL": {
             "description": "ID of a Channel which you want to do Force Sub to use the bot. Example: -100123456789",
-            "required": false
+            "required": false ,
+            "value" : "dlchin"
         },
         "LOG_CHANNEL": {
-            "description": "Logs Channel ID for some Tracking XD. Example: -100123456789"
-        }
-    },
+            "description": "Logs Channel ID for some Tracking XD. Example: -100123456789",
+            "required": false ,
+            "value" : "-1001787336960"
+        },
     "buildpacks": [
         {
             "url": "heroku/python"
