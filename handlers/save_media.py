@@ -91,7 +91,7 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
         await editable.edit(
             "**✅ فایل شما در پایگاه داده من ذخیره شد**\n\n"
             f"**🌐 لینک اشتراک گذاری فایل شما 👇** \n{share_link} \n\n"
-            "**⚠️⁩ این لینک تا 7 روز معتبر می باشد.**",
+            "**⚠️⁩ این لینک تا 7 روز قابل استفاده میباشد.**",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("• بازکردن لینک •", url=share_link)],
                  [InlineKeyboardButton("کانال پشتیبانی 1", url="https://t.me/seriesplus1"),
@@ -110,7 +110,7 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                     [
-                        [InlineKeyboardButton("Ban User", callback_data=f"ban_user_{str(editable.chat.id)}")]
+                        [InlineKeyboardButton("بن کردن کاربر", callback_data=f"ban_user_{str(editable.chat.id)}")]
                     ]
                 )
             )
@@ -125,7 +125,7 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [InlineKeyboardButton("Ban User", callback_data=f"ban_user_{str(editable.chat.id)}")]
+                    [InlineKeyboardButton("بن کردن کاربر", callback_data=f"ban_user_{str(editable.chat.id)}")]
                 ]
             )
         )
