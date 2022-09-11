@@ -11,9 +11,9 @@ from handlers.helpers import str_to_b64
 async def reply_forward(message: Message, file_id: int):
     try:
         await message.reply_text(
-            f"**Here is Sharable Link of this file:**\n"
-            f"https://t.me/{Config.BOT_USERNAME}?start=SeriesPlus1_{str_to_b64(str(file_id))}\n\n"
-            f"__To Retrive the Stored File, just open the link!__",
+            f"****🔺لینک  اشتراک گذاری این فایل 👇****\n"
+            f"🔗 https://t.me/{Config.BOT_USERNAME}?start=SeriesPlus1_{str_to_b64(str(file_id))}\n\n"
+            f"**⚠️⁩ این لینک تا 7 روز معتبر می باشد.**\n📢 {UPDATES_CHANNEL} ",
             disable_web_page_preview=True, quote=True)
     except FloodWait as e:
         await asyncio.sleep(e.value)
